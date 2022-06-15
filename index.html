@@ -13,24 +13,49 @@
 <body>
     <div id="app"></div>
     <script type="text/babel">
-      class App extends React.Component {
-        state = {
+        class App extends React.Component {
+          state = {
             name: 'Ryu',
             age: 30
-        }        
-        render(){
-          return(
-            <div className="app-content">
-                <h1>Hello World !</h1>
+          }
+          // 2
+          handleMouseOver = (e) => {
+            console.log(e.target, e.pageX);
+          }
+          handleClick = e => {
+            console.log(e.target);
+            console.log(this.state)
+            console.log('=======================================')
+            for(let f in e)
+            {
+                console.log(`${f} : ${e[f]}`)
+            }            
+            this.state.age += 1 
+            
+            
+            // console.log('=======================================')
+            // this.setState({
+            //    age:this.state.age + 1
+            // });
+          }
+          handleCopy = (e) => {
+            console.log('Try being original for once');
+          }
+          render(){
+            return(
+              <div className="app-content">
+                <h1>Hello World!</h1>
                 <p>My name is: { this.state.name } and I am { this.state.age }</p>
-            </div>
-          )
+                <button onClick={this.handleClick}>Click me</button>
+                 {/* not -- this.handleClick() will trigger */}
+                <button onMouseOver={this.handleMouseOver}>Hover me</button>
+                <p onCopy={this.handleCopy}>What we think, we become</p> 
+                {/* Ctrl + C */}
+              </div>
+            )
+          }
         }
-      }
-      ReactDOM.render(<App />, document.getElementById('app'));
-	  
-	  // for fun
-	  const elem = <h1>Hello World!</h1>
+        ReactDOM.render(<App />, document.getElementById('app'));
     </script>
   </body>
   </html>
