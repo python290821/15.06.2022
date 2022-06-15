@@ -43,6 +43,7 @@
           }
           handleMouseMove = (e) => {
             console.log(e.pageX, e.pageY);
+            console.log(e.shiftKey)
           }
           render(){
             return(
@@ -53,7 +54,7 @@
                 {/*inline:
                   <button onClick={this.handleClick} onMouseMove ={(e) => console.log(e.pageX, e.pageY)}>Click me</button>*/}
                 {/* not -- this.handleClick() will trigger */}
-                
+
                 <button onMouseOver={this.handleMouseOver}>Hover me</button>
                 <p onCopy={this.handleCopy}>What we think, we become</p> 
                 {/* Ctrl + C */}
