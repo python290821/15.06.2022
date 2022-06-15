@@ -41,13 +41,19 @@
           handleCopy = (e) => {
             console.log('Try being original for once');
           }
+          handleMouseMove = (e) => {
+            console.log(e.pageX, e.pageY);
+          }
           render(){
             return(
               <div className="app-content">
                 <h1>Hello World!</h1>
                 <p>My name is: { this.state.name } and I am { this.state.age }</p>
-                <button onClick={this.handleClick}>Click me</button>
-                 {/* not -- this.handleClick() will trigger */}
+                <button onClick={this.handleClick} onMouseMove ={this.handleMouseMove}>Click me</button>
+                {/*inline:
+                  <button onClick={this.handleClick} onMouseMove ={(e) => console.log(e.pageX, e.pageY)}>Click me</button>*/}
+                {/* not -- this.handleClick() will trigger */}
+                
                 <button onMouseOver={this.handleMouseOver}>Hover me</button>
                 <p onCopy={this.handleCopy}>What we think, we become</p> 
                 {/* Ctrl + C */}
